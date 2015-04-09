@@ -1,4 +1,5 @@
 `ls -F` will show you the listings with files and directories specified
+“-a” flag shows hidden files
 
 Deleting files through Unix is permanent - no recycle bin!
 To delete a file, `rm your_file`
@@ -6,9 +7,18 @@ To delete a file, `rm your_file`
 By default, `rm` will not delete a non-empty directory
 To override, do `rm -r` for recursive. Be very careful!
 
-`cat` will show you the contents of a file in the cmd window (stand for concatenate)
+`cat your_file` will show you the contents of a file in the cmd window (stands for concatenate)
+`touch your_file` will create an empty file titled your_file
+
 
 `vi your_file` will create a file called your_file in the working directory and open the vi editor
+In vi:
+ *“o” to enter edit mode and get a new line (very handy!)
+ *“j” to move to the next line
+ *“k” to move up a line
+ *“dd” to cut a line
+ * “p” to paste
+
 
 ~ represents the home dir
 ~another_eid will take you to that person's home directory
