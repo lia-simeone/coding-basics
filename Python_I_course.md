@@ -5,7 +5,7 @@
 * Loosely-typed meaning you don't have to assign a data type upfront and you can change them as you go `happy='true' happy=10 happy=['lia','test']`
 
 #####Basic data types
-* String - you can use single or double quotes, but don't mix, there is some difference in how variables resolve
+* String - you can use single or double quotes, but don't mix, there is some difference in how variables resolve, strings are immutable
 * Number - integers, float (decimals), long for big numbers that won't fit in an integer, to explicity cast a number as float use `float(yournumber)`
 * Boolean - True or False (case sensitive)
 
@@ -68,8 +68,8 @@
 * You can assign multiple variables at once `first,second='Grace','Hopper'` assigns Grace to first and Hopper to second
 * `Type()` shows you the data type of an object
 * `Len()` shows you the length of a string, list, tuple
-* Commas concatenate items of any data type
-* Plus signs only concatenate the same data type
+* Commas concatenate items of any data type and automatically puts a space between them
+* Plus signs only concatenate the same data type and smooshes them together directly
 * Shape is a variable that contains the number of rows and columns (relevant to dataframes I believe)
 * Typical math functions like max, min, mean, std dev are available
 * Single equal sign is assignment =

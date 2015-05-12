@@ -34,7 +34,7 @@
 #####Object classes - unedited notes!
 * You can create a user-defined object using the class statement
 * When you create a custom-object, you can instantiate objects into it
-* Objects have attributes (basic property) and methods (same as function but requires “self” parameter - a reference to the object
+* Objects have attributes (basic property) and methods (same as function but requires “self” parameter - a reference to the object)
 * You can reference attributes and methods by doing “object.[attr/method] – note an object needs to be defined before doing this
 * You can create a new custom object that inherits qualities of an existing class
 * _init_  is a method that will execute when a new Cat object is initialized. It’s specific to each object and can be modified independently (different then class attributes where all objects of that class have the same value and you can’t change it).
@@ -44,3 +44,57 @@
 #####Miscellaneous
 * If your dictionary key is a list, you can reference items in the list by sticking the indexing together `seasons['spring'][0]` will return March if seasons is a dictionary and spring is a key
 * `range()` is a great way of making arthemetic progressions `range(10)` will create a list containing the numbers 0 to 9
+
+## Additions from my own research - should probably be included in Python II
+
+####Module
+* A module is a python source file containing classes, functions, and global variables
+* can also contain executable code which is run only the first time the module is imported
+* each module has it's own private symbol table
+* within a module, the module's name is available as the global variable __name__
+* the file name is the module name with the .py suffix
+    import [your_module]
+* specific functions within this module have to called with the module name
+    fibo.fib(1000)
+* you can gt around this by either:
+    # Option 1 - give it a local name:
+    fib=fibo.fib
+    # Option 2 - import the function directly
+    from fibo import fib
+    # Option 2b - import all functions individually - not recommended because your function names can overlap
+    from fibo import *
+* You can execute a module as a script (sounds like %include)
+    python fibo.py [arguments]
+--* In this case, __name__ is set to "__main__"
+--* The benefit is that you can include code in your module that only runs when it's executed as a script
+--* You can add this code to test your script and leave it in there if you want to use it as a module later
+    # sys is a standard module
+    # argv[1] refers to the first paramter passed into the script 
+    if __name__ == "__main__":
+        import sys
+        fib(int(sys.argv[1]))
+
+####Package
+* a package is a collection of modules (think of it as a directory)
+* any directory with an `__init__.py` file is considered a package
+--* leaving the init file empty is considered normal and good if the modules and submodules don't need to share code
+* once you import a module or package, the object python creates is always a module (interesting)
+* QUESTION: this seems to conflict with the above but it says only functions/variables/classes into the init file are visible, not sub-packages or modules
+
+
+####Class
+* type of data structure, think of it as a blueprint
+* let's you encapsulate similar functions and variables
+* you define a class with the class operator
+    class class_name:
+* a class can contain methods (functions) and attributes (variables)
+--* functions require the `self` parameter to refer to things in the class (because you're inside it)
+    def area(self)
+        return self.x *self.y
+* code in the __init__ method runs when we create an instance of the class
+
+
+####Sources for these additions
+* [Python documentation](https://docs.python.org/2/tutorial/modules.html)
+* [Stackoverflow[(http://stackoverflow.com/questions/7948494/whats-the-difference-between-a-python-module-and-a-python-package)
+* [Info on classes](http://sthurlow.com/python/lesson08/)

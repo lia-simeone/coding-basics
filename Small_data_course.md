@@ -5,8 +5,8 @@
 
 #####List comprehension
 * Very important and used in a lot of places
-* Way of making a new list where each element is the result of operation applied to each member (or anothe sequence)
- *[See this link for more information](https://docs.python.org/2/tutorial/datastructures.html)
+* Way of making a new list where each element is the result of operation applied to each member (or another sequence)
+* [See this link for more information](https://docs.python.org/2/tutorial/datastructures.html)
 * `print [x for x in triplicate([1,2,3])` means execute triplicate for the values 1, 2, and 3 and put the result into a list
 * Usage can be basic `[i for i in range(5)]` will create a list `[1,2,3,4,5]`
 * Or more complex `[(i,i*2) for i in range(5)] will create a list [(0,0),(1,1),(2,4),(3,6),(4,8)]`
@@ -14,7 +14,7 @@
 
 
 #####Generators
-* As noted in Python II, generators have the same syntax as a fucntion except they use yield rather than return
+* As noted in Python II, generators have the same syntax as a function except they use yield rather than return
 * If you call a function that creates a generator, that will restart the generator
 * In order to advance the generator, you need to assign it to a generator object and then call next on that generator object
     my_generator_object=mygeneratorfunction()
