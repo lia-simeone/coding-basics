@@ -52,7 +52,7 @@
 * can also contain executable code which is run only the first time the module is imported
 * each module has it's own private symbol table
 * within a module, the module's name is available as the global variable __name__
-* the file name is the module name with the .py suffix
+* the file name is the module name with the .py suffix but you call it without the suffix
     import [your_module]
 * specific functions within this module have to called with the module name
     fibo.fib(1000)
@@ -86,15 +86,48 @@
 * type of data structure, think of it as a blueprint
 * let's you encapsulate similar functions and variables
 * you define a class with the class operator
-    class class_name:
+    class class_name(object):
+        #code here
+--* note `(object)` code is mandatory in Python 2.x to explicity call out a new style class. Very important for compatibility!
 * a class can contain methods (functions) and attributes (variables)
 --* functions require the `self` parameter to refer to things in the class (because you're inside it)
     def area(self)
         return self.x *self.y
+--* great example of what self is doing "`jeff.withdraw(100.0)` is just shorthand for `Customer.withdraw(jeff, 100.0)`", it describes which instance to run the method on
 * code in the __init__ method runs when we create an instance of the class
+    def __init__(self,x,y):
+    self.x = x
+    self.y = y
+* "The rule of thumb is, don't introduce a new attribute outside of the __init__ method, otherwise you've given the caller an object that isn't fully initialized" 
 
+##Not sure if the below should be part of Python II
+
+####Pickle
+* Pickling is a way of serializing and de-serializing a Python object structure - converts object into a byte stream
+* Data format is ASCII by default, but also has other settings
+* Pickles are not an encryption technique meanin they are NOT secure
+
+####Lambda
+* an anonymous function that accepts one argument x
+* it's used in-line and doesn't require a 'return' to get the value
+* makes sense if you only want to use the function once
+    # Intput
+    addTwo = lambda x: x+2
+    addTwo(2)
+    # Output
+    4
+* same idea with traditional function
+    # Input
+    def addTwo(x):
+        return x+2
+    addTwo(2)
+    # Output
+    4
 
 ####Sources for these additions
 * [Python documentation](https://docs.python.org/2/tutorial/modules.html)
 * [Stackoverflow[(http://stackoverflow.com/questions/7948494/whats-the-difference-between-a-python-module-and-a-python-package)
 * [Info on classes](http://sthurlow.com/python/lesson08/)
+* [New- vs. old-style classes](http://stackoverflow.com/questions/4015417/python-class-inherits-object)
+* [Another good resource on clases](http://www.jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming/)
+* [Pickle usage examples - not sure I get these](http://stackoverflow.com/questions/3438675/common-use-cases-for-pickle-in-python)

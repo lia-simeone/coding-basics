@@ -41,7 +41,7 @@
     c    3
     d    4
 * `.index` is a pandas object that will show you the index values for the series
-* Why does this create a series with the index as dates? It seems like it should create a series with the dates as the values and the default zero index
+* QUESTION Why does this create a series with the index as dates? It seems like it should create a series with the dates as the values and the default zero index
     dates = pd.date_range('2014-07-01', '2014-07-06')
 * It looks like they create an actual series in the next step
     temps1 = Series([80, 82, 85, 90, 83, 87], 
@@ -58,10 +58,10 @@
 * You can add a column by assigning another Series to the column using an array indexer
     temps_df['Difference'] = temp_diffs
 * Rows can be retrieved by using `.loc` and `.iloc`
-* `.iloc` is integer position based (0 to length-1)
+--* `.iloc` is integer position based (0 to length-1)
     #Grab the second row
     temps_df.iloc[1]
-* The resulting row is a Series with the column names of the DataFrame pivoted into the index labels of the Series
+--* The resulting row is a Series with the column names of the DataFrame pivoted into the index labels of the Series
     # Input
     # the names of the columns have become the index
     # they have been 'pivoted'
@@ -69,11 +69,11 @@
     temps_df.ix[1].index
     # Output
     Index([u'Missoula', u'Philadelphia', u'Difference'], dtype='object')
-* `.loc` is label based
+--* `.loc` is label based
     #QUESTION - `.loc` just grabs the row, right? It doesn't create a series like `.iloc`?
     temps_df.loc['2014-07-03']
-    #temps_df.loc[1] does not work because I specified dates for the labels
-* You can grab specific rows from within a column
+    #temps_df.loc[1] does not work because the labels are dates
+--* You can grab specific rows from within a column too
     #QUESTION  - why do we need double brackets?
     temps_df.iloc[[1,3,4]].Difference
 * You can use a logical expression to filter the data as well
@@ -89,4 +89,16 @@
 * This logic can be used in the [] operator of a df, so only the TRUE rows are returned (R course problem)
     temps_df[temps_df.Missoula>82]
     
+####Read files
+* Basic syntax    
+    # Reads in a test1 CSV file from the subdirectory data
+    df = pd.read_csv('data/test1.csv')
+* There are optional parameters that can adjust how the data is stored
+--* To store dates a Timestamp
+    # This turns the column labeled 'date' into a Timestamp format
+    df = pd.read_csv('data/test1.csv', parse_dates=['date'])
+--* To explicitly identify an index, use the `index_col` paramter
+    df = pd.read_csv('data/test1.csv', parse_dates=['date'], index_col='date')
+* You can also load data from the web, but I won't cover that here
+
 #FINISHED CHAPTER 1
