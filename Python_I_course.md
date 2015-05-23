@@ -13,7 +13,7 @@
 * List - defined by [ ], can contain any mix of strings, numbers, other lists, size is fixed upfront but can be changed by doing `yourlist.append(newvalue)` (mutable object)
 * Tuple - defined by (), can contain a mix of types but cannot be changed (immutable object)
 * Sets - defined by {}, unordered containing no duplicates, in addition to curly brackets, can be created using the `set()` function
-* Dictionary -  pairs defined by {key=value,key=value,...}, you use the key to lookup the value, can be modified, keys cannot be mutable
+* Dictionary -  pairs defined by {key:value,key:value,...}, you use the key to lookup the value, can be modified, keys cannot be mutable
 
 #####Comments
 * Single line comments are denotes by a #

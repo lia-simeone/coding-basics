@@ -101,6 +101,7 @@
 * you can assign it to a new variable or write up the existing variable
 * there are setting likes reverse etc.
 * custom sorting let's you specify the sorting criteria based on the key parameter
+--* the key parameter is called on *each* element of the list
     # Input
     a = ['ccc', 'aaaa', 'd', 'bb']
     sorted(a, key=len)

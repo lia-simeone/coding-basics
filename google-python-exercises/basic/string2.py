@@ -54,10 +54,11 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
+  # creates a dictionary containing the parameters
   inputs=locals()
   
   front,back=[],[]
-  #the .values part pulls the values out the inputs dictionary
+  #the .values part pulls the just values out of the inputs dictionary
   for word in inputs.values():
     front.append(word[:(len(word)+1)/2])
     back.append(word[(len(word)+1)/2:])

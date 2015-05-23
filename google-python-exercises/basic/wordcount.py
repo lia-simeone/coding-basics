@@ -35,7 +35,7 @@ def make_dict(filename):
         if word in word_dict.keys():
             word_count=word_dict[word]
             word_dict[word]=word_count+1
-        # add the word to the dictionary if it does not
+        # add the word and a count of 1 to the dictionary if it does not
         else:
             word_dict[word]=1
         
@@ -51,18 +51,19 @@ def print_words(filename):
         print each_word, result[each_word] 
     
 def get_count(in_tuple):
+    # grab the second element of the tuple (word count) so we can use it as a key for sorting
     return in_tuple[1]
 
 def print_top(filename):
     # generate a dictionary containing all the words and counts
     result = make_dict(filename)
-    # turn each key-value pair into a tuple
+    # create a list of tuples
     tuple_dir = result.items()
-    # sort the tuple by the second item
-    sorted_dict = sorted(tuple_dir, key=get_count, reverse = True)
+    # sort the list by the second item in each tuple
+    sorted_tuple = sorted(tuple_dir, key=get_count, reverse = True)
     
     #print the top 25 words
-    for each_word in sorted_dict[:25]:
+    for each_word in sorted_tuple[:25]:
         print each_word[0], each_word[1]
         
 """
