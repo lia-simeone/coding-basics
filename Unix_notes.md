@@ -27,6 +27,7 @@ In vi:
 `tail` works the same but starting t the end
 
 > tells the shell to redirect the output to the filename that proceeds (will create or overwrite - think about logs for shell scripts)
+>> will append the output to an existing script
 
 A vertical bar | is called a pipe and tells the shell to use the output of the command on the left side as input to the command on the right
 
@@ -38,11 +39,17 @@ history | tail -5 | colrm 1 7 > redo-figure-3.sh
 will create a file called redo-figure-3.sh containing the last four commands that I ran
 Adding colrm will take out the numbers from the history output, makes it even easier to save and re-run your work
 
-“grep” will search within files, it will look for any matches
+“grep this_word this_file.txt” will search within files, it will look for any matches
 “-w” flag will match the word boundaries so only whole word matches
 “-n”  flag will give the line numbers of the matches
 “-i” flag will make the search case-insensitive
 “-v” flag will give you the inverse aka non-match
+
+Grep example:
+    # create a file called acct_sample.txt that contains the lines from profile_trans_3000 where the digits 10546931 exist (an account_id)
+    grep 10546931 20141023_profile_trans_3000_samples.dat > acct_sample.txt
+    # add another account to the same file by using double >>
+    grep 10485894 20141023_profile_trans_3000_samples.dat >> acct_sample.txt
 
 “find” will search for files or directories,
 find . -type d shows dir in pwd and below

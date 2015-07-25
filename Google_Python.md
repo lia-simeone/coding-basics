@@ -171,8 +171,8 @@
         f.close() # not necessary but more correct
 --* going line-by-line is a very efficient from a RAM perspective
 * `readlines()` reads a file into a list where each line from the file is an element of the list
---*CAUTION this method puts the entire dataset into memory so don't use this for large datasets
     lines = f.readlines()
 * `read()` turns a dataset into a single string
+--*CAUTION this method puts the entire dataset into memory so don't use this for large datasets
 --* helpful for find and replace
     text = f.read()
