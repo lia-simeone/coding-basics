@@ -1,3 +1,5 @@
+###Definitely need to add more examples here. DataFrames are filled row-wise which isn't usually how I think.
+
 #####Overall pandas info
 * to follow convention, use the following code
     # Much of pandas is built on NumPy so you should always import them togther
